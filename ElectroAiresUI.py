@@ -1,6 +1,7 @@
 
+from cProfile import label
 import re
-from tkinter import W, StringVar, Text, NW, Button, LabelFrame, Label, Frame, Entry, Text, Tk, Toplevel, CENTER, END, CENTER, font, messagebox as mb
+from tkinter import W, PhotoImage, Text, NW, Button, LabelFrame, Label, Frame, Entry, Text, Tk, Toplevel, CENTER, END, CENTER, font, messagebox as mb
 from turtle import width
 from tkcalendar import DateEntry
 from tkinter import ttk
@@ -23,6 +24,11 @@ class Electro:
         frame_inicio.pack(anchor=CENTER, pady=50)
         Label(frame_inicio, text="Bienvenido a Electro Aires App",
               font=('Britannic Bold', 25), bg="white").pack()
+        
+        img=PhotoImage(file="./inicio.png")
+        lbl_imagen=Label(self.ini,image=img)
+        lbl_imagen.pack(anchor=CENTER)
+        lbl_imagen.img=img
         # Buttons
         btn_registro = Button(frame_inicio, width=20, text="REGISTRAR VEHICULO", font=(
             'Andale Mono', 12), command=lambda: self.Registro_Vehiculo())
